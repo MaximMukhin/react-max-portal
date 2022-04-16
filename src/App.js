@@ -1,30 +1,29 @@
-import React, { useState } from "react";
+import React, {  } from "react";
 import Counter from "./components/Counter";
-import ClassCounter from "./components/ClassCounter";
+import ImputText from "./components/ImputText";
+import './styles/App.css'
 
 
 function App() {
-
-  const [value, setValue] = useState('text')
-
-
 
   return (
     <div className="App">
       <Counter />
       <hr />
- 
-      <ClassCounter/>
+        <ImputText />
+        <hr />
 
-      <hr />
-      <h1>{value}</h1>
-      <input
-        type="text"
-        value={value}
-        onChange={event => setValue(event.target.value)}
-      />
-
-
+        <div className="post">
+           <div className="post__content">
+              <strong>1. JavaScript</strong>
+              <div>
+                 JavaScript - язык програмированя
+              </div>
+           </div>
+           <div className="post__btns">
+              <button>Удалить</button>
+           </div>
+        </div>
     </div>
   );
 }
