@@ -1,50 +1,63 @@
 import React, { useState } from "react";
+import CatalogList from "./components/CatalogList";
 import Counter from "./components/Counter";
 import ImputText from "./components/ImputText";
-import PostForm from "./components/PostForm";
-import PostList from "./components/PostList";
-import MyInput from "./components/UI/input/MyInput";
-import MySelect from "./components/UI/select/MySelect";
-/* import PeopleList from "./components/PeopleList"; */
 import './styles/App.css'
 
 function App() {
 
 
 
-   const [posts, setPosts] = useState([
-      { id: 1, title: 'dd JavaScript 1', body: '32 JS Description 1' },
-      { id: 2, title: 'zz JavaScript 2', body: '1  JS Description 2' },
-      { id: 3, title: '2 JavaScript 3', body: '9   JS Description 3' },
-   ])
-
-   const [selectedSort, setSelectedSort] = useState('')
-
-   const createPost = (newPost) => {
-      console.log(newPost);
-      if (newPost.title !== '' && newPost.body !== '') {
-         setPosts([...posts, newPost])
-      } else {
-         console.log('Добавьте текст');
+   const [products, setProducts] = useState([
+      {
+         image: "Bella-T01-90.jpg",
+         name: "Bella-T01-90",
+         article: "Bella-T01-90",
+         price: 42000,
+         available: true,
+         color: "Белый глянец"
+      },
+      {
+         image: "Natali-T01-90.jpg",
+         name: "Natali-T01-90",
+         article: "Natali-T01-90",
+         price: 40000,
+         available: true,
+         color: "Белый глянец"
+      },
+      {
+         image: "Sofia-T01-90.jpg",
+         name: "Sofia-T01-90",
+         article: "Sofia-T01-90",
+         price: 38000,
+         available: false,
+         color: "Белый глянец"
+      },
+      {
+         image: "Bella-T01-100.jpg",
+         name: "Bella-T01-100",
+         article: "Bella-T01-100",
+         price: 52000,
+         available: true,
+         color: "Красный глянец"
+      },
+      {
+         image: "Natali-T01-100.jpg",
+         name: "Natali-T01-100",
+         article: "Natali-T01-100",
+         price: 50000,
+         available: false,
+         color: "Красный глянец"
+      },
+      {
+         image: "Sofia-T01-100.jpg",
+         name: "Sofia-T01-100",
+         article: "Sofia-T01-100",
+         price: 48000,
+         available: true,
+         color: "Красный глянец"
       }
-   }
-
-   const removePost = (post) => {
-      setPosts(posts.filter(p => p.id !== post.id))
-      console.log('removePost', post);
-   }
-
-
-/*    const [peoples, setPeoples] = useState([
-      { id: 1, name: 'Max', lastName: 'Mukhin', budget: '60000' },
-      { id: 2, name: 'Alex', lastName: 'Serdukova', budget: '40000' },
-      { id: 3, name: 'Pasha', lastName: 'Ganushkin', budget: '55000' },
-   ]) */
-
-   const sortPosts = (sort) => {
-      setSelectedSort(sort)
-      setPosts([...posts].sort((a, b) => a[sort].localeCompare(b[sort])))
-   }
+   ])
 
   return (
     <div className="App">
@@ -52,34 +65,13 @@ function App() {
         <hr style={{ margin: '15px 0' }} />
         <ImputText />
         <hr style={{ margin: '15px 0' }} />
-
-
-
-        <PostForm create={createPost} />
+        <p>React Store</p>
         <hr style={{ margin: '15px 0' }} />
-        <div>
-           <MyInput
-              placeholder='Поиск'
-           />
-           <MySelect
-              value={selectedSort}
-              onChange={sortPosts}
-              defaultValue={'Сортировка'}
-              options={[
-                 { value: 'title', name: 'По названию' },
-                 { value: 'body', name: 'По описанию' }
-              ]}
+        <CatalogList
+           title={'Catalog'}
+           products={products}
+        />
 
-           />
-        </div>
-        {posts.length !== 0
-           ? <PostList remove={removePost} posts={posts} title='Посты по JS' />
-           : <h1 style={{ textAlign: 'center' }}>Посты не найдены</h1>
-        }
-
-
-
-{/*         <PeopleList peoples={peoples} /> */}
     </div>
   );
 }
