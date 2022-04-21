@@ -14,7 +14,7 @@ function App() {
          name: "Bella-T01-90",
          article: "Bella-T01-90",
          price: 42000,
-         available: true,
+         available: 10,
          color: "Белый глянец"
       },
       {
@@ -22,7 +22,7 @@ function App() {
          name: "Natali-T01-90",
          article: "Natali-T01-90",
          price: 40000,
-         available: true,
+         available: 6,
          color: "Белый глянец"
       },
       {
@@ -30,7 +30,7 @@ function App() {
          name: "Sofia-T01-90",
          article: "Sofia-T01-90",
          price: 38000,
-         available: false,
+         available: 3,
          color: "Белый глянец"
       },
       {
@@ -38,7 +38,7 @@ function App() {
          name: "Bella-T01-100",
          article: "Bella-T01-100",
          price: 52000,
-         available: true,
+         available: 7,
          color: "Красный глянец"
       },
       {
@@ -46,7 +46,7 @@ function App() {
          name: "Natali-T01-100",
          article: "Natali-T01-100",
          price: 50000,
-         available: false,
+         available: 5,
          color: "Красный глянец"
       },
       {
@@ -54,7 +54,7 @@ function App() {
          name: "Sofia-T01-100",
          article: "Sofia-T01-100",
          price: 48000,
-         available: true,
+         available: 9,
          color: "Красный глянец"
       }
    ])
@@ -65,7 +65,7 @@ function App() {
          name: "Bella-T01-90",
          article: "Bella-T01-90",
          price: 42000,
-         available: true,
+         available: 10,
          color: "Белый глянец"
       },
       {
@@ -73,7 +73,7 @@ function App() {
          name: "Natali-T01-90",
          article: "Natali-T01-90",
          price: 40000,
-         available: true,
+         available: 6,
          color: "Белый глянец"
       }
    ])
