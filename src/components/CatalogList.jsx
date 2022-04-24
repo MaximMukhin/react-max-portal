@@ -1,7 +1,7 @@
 import React from 'react';
 import CatalogItem from './CatalogItem';
 
-const CatalogList = ({ products, title, addToCart }) => {
+const CatalogList = ({ products, title }) => {
 
    return (
       <div>
@@ -9,7 +9,6 @@ const CatalogList = ({ products, title, addToCart }) => {
          <div className="catalog">
          {products.map((product, index) =>
             <CatalogItem
-               addToCart={addToCart}
                number={index + 1}
                product={product}
                key={product.article}
