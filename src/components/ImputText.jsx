@@ -14,8 +14,8 @@ const ImputText = function () {
       />
       </div>
 
-   );
+   )
 
-};
+}
 
 export default ImputText;

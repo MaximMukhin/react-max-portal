@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import MyButton from './UI/button/MyButton';
 
 const CartItem = (props) => {
@@ -8,7 +8,7 @@ const CartItem = (props) => {
          <div className="post__content">
             <p>index: {props.number}</p>
             <hr style={{ margin: '15px 0' }}/>
-            <img style={{ maxWidth: '200px' }} src={`/images/${props.productCart.image}`} alt="картинка" />
+            <img style={{ maxWidth: '100px', borderRadius: '5px' }} src={`/images/${props.productCart.image}`} alt="картинка" />
             <p>Артикул: {props.productCart.article}</p>
             <p>Название:</p>
             <p>Цвет:</p>
@@ -23,4 +23,4 @@ const CartItem = (props) => {
    )
 }
 
-export default CartItem
+export default CartItem;

@@ -78,6 +78,10 @@ function App() {
       }
    ])
 
+   const addToCart = () => {
+      console.log('addToCart')
+   }
+
 
   return (
     <div className="App">
@@ -91,16 +95,18 @@ function App() {
         <CatalogList
            title={'Catalog'}
            products={products}
+           addToCart={addToCart}
         />
         <hr style={{ margin: '15px 0' }} />
         <Cart
+
            productsCart={productsCart}
         />
 
 
 
     </div>
-  );
+  )
 }
 
 export default App;
