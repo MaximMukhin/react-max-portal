@@ -15,6 +15,8 @@ const CatalogItem = (props) => {
     setCart([...cart, product])
   }
 
+
+
   return (
     <div className="post">
       <div className="post__content">
