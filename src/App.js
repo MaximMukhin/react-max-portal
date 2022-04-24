@@ -36,7 +36,7 @@ const [products, setProducts] = useRecoilState(productsState)
 
         <hr style={{ margin: '15px 0' }} />
            <Cart />
-
+         pdndn
     </div>
   )
 }
