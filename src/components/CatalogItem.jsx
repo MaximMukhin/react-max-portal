@@ -3,6 +3,8 @@ import MyButton from './UI/button/MyButton';
 
 const CatalogItem = (props) => {
 
+
+
   return (
     <div className="post">
       <div className="post__content">

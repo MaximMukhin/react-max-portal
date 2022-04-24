@@ -4,9 +4,8 @@ import ImputText from "./components/ImputText"; */
 import './styles/App.css'
 import CatalogList from "./components/CatalogList";
 import Cart from "./components/Cart";
+
 function App() {
-
-
 
    const [products, setProducts] = useState([
       {
@@ -78,8 +77,8 @@ function App() {
       }
    ])
 
-   const addToCart = () => {
-      console.log('addToCart')
+   const addToCart = (newProduct) => {
+      setProductsCart([...products, newProduct])
    }
 
 
@@ -96,15 +95,14 @@ function App() {
            title={'Catalog'}
            products={products}
            addToCart={addToCart}
-        />
-        <hr style={{ margin: '15px 0' }} />
-        <Cart
 
+        />
+
+        <hr style={{ margin: '15px 0' }} />
+
+        <Cart
            productsCart={productsCart}
         />
-
-
-
     </div>
   )
 }

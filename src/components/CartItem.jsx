@@ -2,7 +2,7 @@ import React from 'react';
 import MyButton from './UI/button/MyButton';
 
 const CartItem = (props) => {
-   console.log('CartItem', props);
+   /*    console.log('CartItem', props); */
    return (
       <div className="post">
          <div className="post__content">
