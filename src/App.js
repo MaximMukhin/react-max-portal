@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-/* import Counter from "./components/Counter";
-import ImputText from "./components/ImputText"; */
+import Counter from "./components/Counter";
+import ImputText from "./components/ImputText";
 import './styles/App.css'
 import CatalogList from "./components/CatalogList";
 import Cart from "./components/Cart";
@@ -18,13 +18,13 @@ const [products, setProducts] = useRecoilState(productsState)
             setProducts(data)
          })
       })
-   },[])
+   }, [setProducts])
 
   return (
     <div className="App">
-        {/*       <Counter />
+        <Counter />
         <hr style={{ margin: '15px 0' }} />
-        <ImputText /> */}
+        <ImputText /> 
         <hr style={{ margin: '15px 0' }} />
         <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: '900' }}>React Store</p>
         <hr style={{ margin: '15px 0' }} />
