@@ -14,6 +14,7 @@ const CartItem = (props) => {
             <p>Название:</p>
             <p>Цвет:</p>
             <p>Цена:</p>
+            <p>Количество: {props.productCart.qty}</p>
          </div>
          <div>
             <MyButton onClick={() => props.remove(props.product)}>Удалить</MyButton>

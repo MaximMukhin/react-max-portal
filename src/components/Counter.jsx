@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { StyledButton } from "./styled/StyledButton";
 
 const Counter = function () {
    const [count, setCount] = useState(0)
@@ -13,9 +14,15 @@ const Counter = function () {
 
    return (
       <div>
+         <StyledButton 
+         variant={count}
+
+         >
+            Кнопка
+         </StyledButton>
          <h1>{count}</h1>
-         <button onClick={increment}>Increment</button>
-         <button onClick={decrement}>Decrement</button>
+         <StyledButton onClick={increment}>Increment</StyledButton>
+         <StyledButton onClick={decrement}>Decrement</StyledButton>
       </div>
    )
 
