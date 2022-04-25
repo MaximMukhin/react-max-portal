@@ -1,23 +1,42 @@
 import React from 'react';
-import MyButton from './UI/button/MyButton';
+import { StyledButton } from './styled/StyledButton';
+import { useRecoilState } from 'recoil';
+import { cartState } from '../atoms/cart';
 
-const CartItem = (props) => {
+const CartItem = ({ productCart, number, removeCartItem, decrement, increment }) => {
 
+   const [cart, setCart] = useRecoilState(cartState)
+
+   /*    const decrement = () => {
+         console.log('decrement');
+         productCart.qty--
+      }
+   
+      const increment = () => {
+         console.log('increment');
+         productCart.qty++
+      } */
 
    return (
       <div className="post">
          <div className="post__content">
-            <p>index: {props.number}</p>
-            <hr style={{ margin: '15px 0' }}/>
-            <img style={{ maxWidth: '100px', borderRadius: '5px' }} src={`/images/${props.productCart.image}`} alt="картинка" />
-            <p>Артикул: {props.productCart.article}</p>
-            <p>Название:</p>
-            <p>Цвет:</p>
-            <p>Цена:</p>
-            <p>Количество: {props.productCart.qty}</p>
+            <p>index: {number}</p>
+            <hr style={{ margin: '15px 0' }} />
+            <img style={{ maxWidth: '100px', borderRadius: '5px' }} src={`/images/${productCart.image}`} alt="картинка" />
+            <p>Артикул: {productCart.article}</p>
+            <p>Название: {productCart.name}</p>
+            <p>Цвет: {productCart.color}</p>
+            <p>Цена: {productCart.price}.руб</p>
+            <p>Общая цена: {productCart.price * productCart.qty}.руб</p>
+            <p>Количество:
+               <StyledButton onClick={() => decrement()}>-</StyledButton>
+               {productCart.qty}
+               <StyledButton onClick={() => increment()}>+</StyledButton>
+            </p>
          </div>
+         <hr style={{ margin: '5px 0' }} />
          <div>
-            <MyButton onClick={() => props.remove(props.product)}>Удалить</MyButton>
+            <StyledButton onClick={() => removeCartItem(number - 1)}>Удалить</StyledButton>
          </div>
 
       </div>

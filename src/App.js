@@ -9,32 +9,31 @@ import { productsState } from "./atoms/products";
 import { StyledButton } from "./components/styled/StyledButton";
 import { StyledInput } from "./components/styled/StyledInput";
 
+
+
+
 function App() {
 
-const [products, setProducts] = useRecoilState(productsState)
-   
+   const [products, setProducts] = useRecoilState(productsState)
+
    useEffect(() => {
       fetch('http://localhost:3000/products.json').then((res) => {
          res.json().then((data) => {
-            console.log(data);
+            /*             console.log(data); */
             setProducts(data)
          })
       })
    }, [setProducts])
 
-  return (
-    <div className="App">
-        <Counter />
+   return (
+      <div className="App">
+         {/*         <Counter />
         <hr style={{ margin: '15px 0' }} />
-        <ImputText /> 
+        <ImputText />
         <hr style={{ margin: '15px 0' }} />
         <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: '900' }}>React Store</p>
         <hr style={{ margin: '15px 0' }} />
-
          <StyledInput/>
-
- 
-
         <StyledButton
            onClick={() => console.log('Я нажалась')}
            variant={1}
@@ -46,19 +45,23 @@ const [products, setProducts] = useRecoilState(productsState)
            variant={0}
         >
            Удалить
-        </StyledButton>
+        </StyledButton> */}
 
-        <CatalogList
-           title={'Catalog'}
-           products={products}
-        />
+         <CatalogList
+            title={'Catalog'}
+            products={products}
+         />
 
-        <hr style={{ margin: '15px 0' }} />
-           <Cart />
+         <hr style={{ margin: '15px 0' }} />
 
 
-    </div>
-  )
+         <Cart />
+
+
+
+
+      </div>
+   )
 }
 
 export default App;

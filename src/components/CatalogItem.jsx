@@ -1,9 +1,10 @@
 import React from 'react';
-import MyButton from './UI/button/MyButton';
 import { useRecoilState } from 'recoil';
 import { cartState } from '../atoms/cart';
+import { StyledButton } from './styled/StyledButton';
 
 const CatalogItem = (props) => {
+  
   const {
     number,
     product,
@@ -14,7 +15,6 @@ const CatalogItem = (props) => {
   const updateCart = () => {
     setCart([...cart, product])
   }
-
 
 
   return (
@@ -32,8 +32,8 @@ const CatalogItem = (props) => {
         <p>Цена: {product.price}руб</p>
         <p>Склад: {product.available}шт</p>
       </div>
-      <div className="post__btns">
-        <MyButton onClick={updateCart}>Купить</MyButton>
+      <div>
+        <StyledButton onClick={updateCart}>Купить</StyledButton>
       </div>
     </div>
   )

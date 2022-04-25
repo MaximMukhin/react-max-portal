@@ -1,24 +1,19 @@
 import styled from "styled-components";
-import {color} from './color'
-
-const variantStyles = {
-   1: '24px',
-   2: '48px',
-   3: '64px',
-}
-
 
 
 export const StyledButton = styled.button`
-   height: ${({ variant }) => variantStyles[variant] ?? variantStyles[1]};
    padding: 5px 15px;
    font-size: 14px;
+   font-weight: 800;
    background: transparent;
    border-radius: 5px;
    cursor: pointer;
-   ${color};
+   align-items: center;
+   color: rgb(93, 176, 112);
+   border: 1px solid rgb(93, 176, 112);
    &:hover {
       background-color: green;
+      color: white;
    }
 
 `
