@@ -16,7 +16,6 @@ const Cart = () => {
          continue
       }
       result.push({ ...product, qty: 1 })
-      console.log('result', result);
    }
 
    const decrement = () => {
@@ -35,6 +34,10 @@ const Cart = () => {
       setCart([...cart, cart.splice(index)])
    }
 
+   const clgState = () => {
+      console.log(cart);
+   }
+
    return (
       <div>
 
@@ -43,8 +46,9 @@ const Cart = () => {
             ? <div>
                <h1 style={{ textAlign: 'center' }}>Cart</h1>
                <div className='cart'>
-                  {result.map((productCart, index) =>
+                  {cart.map((productCart, index) =>
                      <CartItem
+                        clgState={clgState}
                         decrement={decrement}
                         increment={increment}
                         removeCartItem={removeCartItem}

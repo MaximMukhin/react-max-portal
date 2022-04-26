@@ -3,7 +3,7 @@ import { StyledButton } from './styled/StyledButton';
 import { useRecoilState } from 'recoil';
 import { cartState } from '../atoms/cart';
 
-const CartItem = ({ productCart, number, removeCartItem, decrement, increment }) => {
+const CartItem = ({ productCart, number, removeCartItem, decrement, increment, clgState }) => {
 
    const [cart, setCart] = useRecoilState(cartState)
 
@@ -37,6 +37,7 @@ const CartItem = ({ productCart, number, removeCartItem, decrement, increment })
          <hr style={{ margin: '5px 0' }} />
          <div>
             <StyledButton onClick={() => removeCartItem(number - 1)}>Удалить</StyledButton>
+            <StyledButton onClick={() => clgState()}>Стейт</StyledButton>
          </div>
 
       </div>

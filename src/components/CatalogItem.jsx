@@ -12,9 +12,38 @@ const CatalogItem = (props) => {
 
   const [cart, setCart] = useRecoilState(cartState)
 
+  /*   const updateCart = () => {
+      setCart([...cart, product])
+    } */
+
   const updateCart = () => {
-    setCart([...cart, product])
+
+    const resultCart = []
+
+    for (const product of cart) {
+      const finded = cart.find((el) => el.article === product.article)
+      if (finded) {
+        console.log('Артикул совпал');
+      }
+
+    }
+
+    setCart([...cart, { ...product, qty: 1 }])
+    console.log('setCart', [...cart, { ...product, qty: 1 }]);
+
   }
+
+//  const result = []
+//  for (const product of cart) {
+//     const finded = result.find((el) => el.article === product.article)
+//     if (finded) {
+//        finded.qty++;
+//        continue
+//     }
+//     result.push({ ...product, qty: 1 })
+//  }
+
+
 
 
   return (
