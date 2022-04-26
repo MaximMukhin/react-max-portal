@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import { cartState } from '../atoms/cart';
+import { copyDeep } from '../utils/copyDeep';
 import { StyledButton } from './styled/StyledButton';
 
 const CatalogItem = (props) => {
@@ -12,39 +13,16 @@ const CatalogItem = (props) => {
 
   const [cart, setCart] = useRecoilState(cartState)
 
-  /*   const updateCart = () => {
-      setCart([...cart, product])
-    } */
-
   const updateCart = () => {
-
-    const resultCart = []
-
-    for (const product of cart) {
-      const finded = cart.find((el) => el.article === product.article)
-      if (finded) {
-        console.log('Артикул совпал');
-      }
-
+    const newCart = copyDeep(cart)
+    const finded = newCart.find((el) => el.article === product.article)
+    if (!finded) {
+      setCart([...cart, { ...product, qty: 1 }])
+    } else {
+      finded.qty++
+      setCart(newCart)
     }
-
-    setCart([...cart, { ...product, qty: 1 }])
-    console.log('setCart', [...cart, { ...product, qty: 1 }]);
-
   }
-
-//  const result = []
-//  for (const product of cart) {
-//     const finded = result.find((el) => el.article === product.article)
-//     if (finded) {
-//        finded.qty++;
-//        continue
-//     }
-//     result.push({ ...product, qty: 1 })
-//  }
-
-
-
 
   return (
     <div className="post">

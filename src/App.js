@@ -9,9 +9,6 @@ import { productsState } from "./atoms/products";
 import { StyledButton } from "./components/styled/StyledButton";
 import { StyledInput } from "./components/styled/StyledInput";
 
-
-
-
 function App() {
 
    const [products, setProducts] = useRecoilState(productsState)
@@ -54,11 +51,7 @@ function App() {
 
          <hr style={{ margin: '15px 0' }} />
 
-
          <Cart />
-
-
-
 
       </div>
    )

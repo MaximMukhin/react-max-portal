@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import { cartState } from '../atoms/cart';
+import { copyDeep } from '../utils/copyDeep';
 import CartItem from './CartItem';
 
 const Cart = () => {
@@ -18,15 +19,19 @@ const Cart = () => {
       result.push({ ...product, qty: 1 })
    }
 
-   const decrement = () => {
-      console.log('decrement');
-
+   const changeQty = (index, dir) => {
+      const newCart = copyDeep(cart)
+      const qty = newCart[index].qty
+      if (qty > 1 && dir === -1) {
+         newCart[index].qty += dir
+         setCart(newCart)
+      } else if (dir === 1) {
+         newCart[index].qty += dir
+         setCart(newCart)
+      }
    }
 
-   const increment = () => {
-      console.log('increment');
 
-   }
 
    const removeCartItem = (index) => {
       console.log('removeCartItem', index);
@@ -49,8 +54,8 @@ const Cart = () => {
                   {cart.map((productCart, index) =>
                      <CartItem
                         clgState={clgState}
-                        decrement={decrement}
-                        increment={increment}
+                        decrement={() => changeQty(index, -1)}
+                        increment={() => changeQty(index, 1)}
                         removeCartItem={removeCartItem}
                         number={index + 1}
                         productCart={productCart}

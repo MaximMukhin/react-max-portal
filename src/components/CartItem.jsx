@@ -7,16 +7,6 @@ const CartItem = ({ productCart, number, removeCartItem, decrement, increment, c
 
    const [cart, setCart] = useRecoilState(cartState)
 
-   /*    const decrement = () => {
-         console.log('decrement');
-         productCart.qty--
-      }
-   
-      const increment = () => {
-         console.log('increment');
-         productCart.qty++
-      } */
-
    return (
       <div className="post">
          <div className="post__content">
