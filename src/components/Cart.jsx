@@ -8,16 +8,16 @@ const Cart = () => {
 
    const [cart, setCart] = useRecoilState(cartState)
 
-   const result = []
+   //const result = []
 
-   for (const product of cart) {
-      const finded = result.find((el) => el.article === product.article)
-      if (finded) {
-         finded.qty++;
-         continue
-      }
-      result.push({ ...product, qty: 1 })
-   }
+   //for (const product of cart) {
+   //   const finded = result.find((el) => el.article === product.article)
+   //   if (finded) {
+   //      finded.qty++;
+   //      continue
+   //   }
+   //   result.push({ ...product, qty: 1 })
+   //}
 
    const changeQty = (index, dir) => {
       const newCart = copyDeep(cart)
@@ -31,22 +31,19 @@ const Cart = () => {
       }
    }
 
-
-
    const removeCartItem = (index) => {
-      console.log('removeCartItem', index);
-      console.log('cart', cart);
-      setCart([...cart, cart.splice(index)])
+      const newCart = copyDeep(cart)
+      newCart.splice(index, 1)
+      setCart(newCart)
    }
 
-   const clgState = () => {
+   const clgState = (index) => {
       console.log(cart);
+      console.log(index);
    }
 
    return (
       <div>
-
-
          {cart.length !== 0
             ? <div>
                <h1 style={{ textAlign: 'center' }}>Cart</h1>
@@ -57,7 +54,7 @@ const Cart = () => {
                         decrement={() => changeQty(index, -1)}
                         increment={() => changeQty(index, 1)}
                         removeCartItem={removeCartItem}
-                        number={index + 1}
+                        number={index}
                         productCart={productCart}
                         key={index}
                      />
@@ -74,10 +71,6 @@ const Cart = () => {
                Корзина пустая
             </div>
          }
-
-
-
-
       </div>
    )
 }

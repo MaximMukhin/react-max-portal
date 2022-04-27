@@ -12,7 +12,10 @@ const CartItem = ({ productCart, number, removeCartItem, decrement, increment, c
          <div className="post__content">
             <p>index: {number}</p>
             <hr style={{ margin: '15px 0' }} />
-            <img style={{ maxWidth: '100px', borderRadius: '5px' }} src={`/images/${productCart.image}`} alt="картинка" />
+            <img
+               style={{ maxWidth: '100px', borderRadius: '5px' }}
+               src={`/images/${productCart.image}`} alt="картинка"
+            />
             <p>Артикул: {productCart.article}</p>
             <p>Название: {productCart.name}</p>
             <p>Цвет: {productCart.color}</p>
@@ -26,8 +29,12 @@ const CartItem = ({ productCart, number, removeCartItem, decrement, increment, c
          </div>
          <hr style={{ margin: '5px 0' }} />
          <div>
-            <StyledButton onClick={() => removeCartItem(number - 1)}>Удалить</StyledButton>
-            <StyledButton onClick={() => clgState()}>Стейт</StyledButton>
+            <StyledButton
+               onClick={() => removeCartItem(number)}
+            >Удалить</StyledButton>
+            <StyledButton
+               onClick={() => clgState(number)}
+            >Стейт</StyledButton>
          </div>
 
       </div>
