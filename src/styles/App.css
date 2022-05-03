@@ -15,10 +15,12 @@
 
 .App {
    width: 800px;
+   background-color: aliceblue;
+   height:100%;
 }
 
 
-.post {
+/* .post {
    flex-basis: 32%;
    text-align: center;
    padding: 15px;
@@ -33,12 +35,14 @@
    flex-wrap: wrap;
 }
 
-.cart {
+*/
+/* .cart {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
 }
 
+*/
 
 /* @media screen and (max-width: 1200px) {
    .App {

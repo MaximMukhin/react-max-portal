@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { productsState } from "../atoms/products";
-/* import Counter from "../components/Counter"; */
-/* import ImputText from "../components/ImputText"; */
 import '../styles/App.css'
 import CatalogList from "../components/CatalogList";
-import Cart from "../components/Cart";
+import Navigation from "../components/Navigation";
 
-function Store() {
-   console.log('productsState', productsState);
+function Catalog() {
+
    const [products, setProducts] = useRecoilState(productsState)
 
    useEffect(() => {
@@ -22,25 +20,17 @@ function Store() {
 
 
    return (
-      <div className="App">
-         {/*          <Counter />
-        <hr style={{ margin: '15px 0' }} />
-        <ImputText />
-        <hr style={{ margin: '15px 0' }} />
-        <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: '900' }}>React Store</p>
-        <hr style={{ margin: '15px 0' }} /> */}
+      <div>
+
+         <Navigation />
 
          <CatalogList
             title={'Catalog'}
             products={products}
          />
-
          <hr style={{ margin: '15px 0' }} />
-
-         <Cart />
-
       </div>
    )
 }
 
-export default Store;
+export default Catalog;

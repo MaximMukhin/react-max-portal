@@ -1,8 +1,10 @@
+import { Button } from '@mui/material';
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import { cartState } from '../atoms/cart';
 import { copyDeep } from '../utils/copyDeep';
-import { StyledButton } from './styled/StyledButton';
+import { StyledProductItems } from './styled/StyledProductItems'
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const CatalogItem = (props) => {
   
@@ -25,8 +27,8 @@ const CatalogItem = (props) => {
   }
 
   return (
-    <div className="post">
-      <div className="post__content">
+    <StyledProductItems>
+      <div>
         <p>index: {number} </p>
         <hr style={{ margin: '15px 0' }} />
         <img
@@ -40,9 +42,16 @@ const CatalogItem = (props) => {
         <p>Склад: {product.available}шт</p>
       </div>
       <div>
-        <StyledButton onClick={updateCart}>Купить</StyledButton>
+        <Button
+          variant="outlined"
+          color="info"
+          endIcon={<AddShoppingCartIcon />}
+          onClick={updateCart}
+        >
+          Купить
+        </Button>
       </div>
-    </div>
+    </StyledProductItems>
   )
 }
 

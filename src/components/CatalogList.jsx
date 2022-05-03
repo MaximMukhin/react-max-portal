@@ -1,12 +1,14 @@
 import React from 'react';
 import CatalogItem from './CatalogItem';
 
+import { StyledProductList } from '../components/styled/StyledProductList'
+
 const CatalogList = ({ products, title }) => {
 
    return (
       <div>
          <h1 style={{ textAlign: 'center' }}>{title}</h1>
-         <div className="catalog">
+         <StyledProductList>
             {products.map((product, index) =>
                <CatalogItem
                   number={index + 1}
@@ -14,10 +16,7 @@ const CatalogList = ({ products, title }) => {
                   key={product.article}
                />
             )}
-         </div>
-
-
-
+         </StyledProductList>
       </div>
    )
 }

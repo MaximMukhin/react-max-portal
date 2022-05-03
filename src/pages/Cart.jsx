@@ -2,7 +2,9 @@ import React from 'react';
 import { useRecoilState } from 'recoil';
 import { cartState } from '../atoms/cart';
 import { copyDeep } from '../utils/copyDeep';
-import CartItem from './CartItem';
+import CartItem from '../components/CartItem';
+import Navigation from '../components/Navigation';
+import { StyledProductList } from '../components/styled/StyledProductList'
 
 const Cart = () => {
 
@@ -42,12 +44,15 @@ const Cart = () => {
       console.log(index);
    }
 
+
+
    return (
       <div>
+         <Navigation />
          {cart.length !== 0
             ? <div>
                <h1 style={{ textAlign: 'center' }}>Cart</h1>
-               <div className='cart'>
+               <StyledProductList>
                   {cart.map((productCart, index) =>
                      <CartItem
                         clgState={clgState}
@@ -59,7 +64,7 @@ const Cart = () => {
                         key={index}
                      />
                   )}
-               </div>
+               </StyledProductList>
             </div>
 
             : <div

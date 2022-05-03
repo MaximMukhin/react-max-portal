@@ -1,15 +1,26 @@
+import { Button, IconButton } from '@mui/material';
 import React from 'react';
-import { StyledButton } from './styled/StyledButton';
-import { useRecoilState } from 'recoil';
-import { cartState } from '../atoms/cart';
+/* import { useRecoilState } from 'recoil';
+import { cartState } from '../atoms/cart'; */
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
+import { StyledProductItems } from './styled/StyledProductItems'
 
-const CartItem = ({ productCart, number, removeCartItem, decrement, increment, clgState }) => {
+const CartItem = ({
+   productCart,
+   number,
+   removeCartItem,
+   decrement,
+   increment,
+   clgState }) => {
 
-   const [cart, setCart] = useRecoilState(cartState)
+   /*    const [cart, setCart] = useRecoilState(cartState) */
 
    return (
-      <div className="post">
-         <div className="post__content">
+      <StyledProductItems>
+         <div>
+            <div >
             <p>index: {number}</p>
             <hr style={{ margin: '15px 0' }} />
             <img
@@ -21,23 +32,49 @@ const CartItem = ({ productCart, number, removeCartItem, decrement, increment, c
             <p>Цвет: {productCart.color}</p>
             <p>Цена: {productCart.price}.руб</p>
             <p>Общая цена: {productCart.price * productCart.qty}.руб</p>
-            <p>Количество:
-               <StyledButton onClick={() => decrement()}>-</StyledButton>
-               {productCart.qty}
-               <StyledButton onClick={() => increment()}>+</StyledButton>
+               <p>Количество:
+
+                  <IconButton
+                     aria-label="-"
+                     color="info"
+                     onClick={() => decrement()}>
+                     <IndeterminateCheckBoxIcon />
+                  </IconButton>
+
+                  {productCart.qty}
+
+                  <IconButton
+                     aria-label="+"
+                     color="info"
+                     onClick={() => increment()}>
+                     <AddBoxIcon />
+                  </IconButton>
             </p>
          </div>
          <hr style={{ margin: '5px 0' }} />
          <div>
-            <StyledButton
-               onClick={() => removeCartItem(number)}
-            >Удалить</StyledButton>
-            <StyledButton
-               onClick={() => clgState(number)}
-            >Стейт</StyledButton>
-         </div>
 
+               <Button
+                  style={{ marginRight: '10px' }}
+                  variant="outlined"
+                  color="error"
+                  endIcon={<DeleteIcon />}
+               onClick={() => removeCartItem(number)}
+               >
+                  Удалить
+               </Button>
+
+               <Button
+                  variant="outlined"
+                  color="info"
+               onClick={() => clgState(number)}
+               >
+                  Стейт
+               </Button>
+            </div>
       </div>
+      </StyledProductItems>
+
    )
 }
 
