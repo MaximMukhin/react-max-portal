@@ -2,11 +2,11 @@ import React from 'react'
 import Navigation from '../components/Navigation';
 import Counter from "../components/miniPrograms/Counter";
 import ImputText from "../components/miniPrograms/ImputText";
-import ImputTextArea from '../components/miniPrograms/ImputTextArea';
+/* import ImputTextArea from '../components/miniPrograms/ImputTextArea'; */
 import SpeedCut from '../components/miniPrograms/SpeedCut';
 
 
-const About = () => {
+const MiniProgramms = () => {
    return (
       <div>
          <Navigation />
@@ -17,7 +17,7 @@ const About = () => {
          }}>
             Компонент Mini-Programs
          </h1>
-         <ImputTextArea />
+         {/*          <ImputTextArea /> */}
 
          <hr style={{ margin: '15px 0' }} />
 
@@ -39,4 +39,4 @@ const About = () => {
    );
 };
 
-export default About;
+export default MiniProgramms;

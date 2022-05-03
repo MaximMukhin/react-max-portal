@@ -44,6 +44,13 @@ const Navigation = () => {
             </Button>
          </Link>
 
+         <Link to="/test">
+            <Button
+               size="large"
+            >
+               Test
+            </Button>
+         </Link>
       </div>
    )
 }
