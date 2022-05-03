@@ -1,8 +1,8 @@
 import React from 'react'
 import Navigation from '../components/Navigation';
 import Counter from "../components/miniPrograms/Counter";
-import ImputText from "../components/miniPrograms/ImputText";
-/* import ImputTextArea from '../components/miniPrograms/ImputTextArea'; */
+import InputText from "../components/miniPrograms/InputText";
+import InputTextAreaAc from '../components/miniPrograms/InputTextAreaAc';
 import SpeedCut from '../components/miniPrograms/SpeedCut';
 
 
@@ -17,7 +17,7 @@ const MiniProgramms = () => {
          }}>
             Компонент Mini-Programs
          </h1>
-         {/*          <ImputTextArea /> */}
+         <InputTextAreaAc /> 
 
          <hr style={{ margin: '15px 0' }} />
 
@@ -29,7 +29,7 @@ const MiniProgramms = () => {
 
          <hr style={{ margin: '15px 0' }} />
 
-         <ImputText />
+         <InputText />
 
          <hr style={{ margin: '15px 0' }} />
 

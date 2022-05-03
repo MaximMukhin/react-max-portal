@@ -1,29 +1,24 @@
 import { TextField } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const ImputTextArea = function () {
-   const [valueImputTextAreaAc, setValueImputTextAreaAc] = useState('')
-   const [valueImputTextAreaAcNew, setValueImputTextAreaNew] = useState([])
+const InputTextArea = function () {
+   const [valueInputTextAreaAc, setValueInputTextAreaAc] = useState('')
+   const [valueInputTextAreaAcNew, setValueInputTextAreaNew] = useState([])
 
-   //   const splitImput = () => {
-   //      let str = valueImputTextAreaAc
-   //      let arr = str.split('\n')
-   //      console.log('splitImput arr', arr);
-   //      /*       setValueImputTextAreaNew(arr) */
-   //   }
-
-   const splitImput = (string) => {
+   const splitInput = (string) => {
       let arr = string.split('\n')
-      console.log('splitImput arr', arr);
+      console.log('splitInput arr', arr);
       return arr
-/*       setValueImputTextAreaNew(arr) */
    }
 
+   useEffect(() => {
+      setValueInputTextAreaNew(splitInput(valueInputTextAreaAc))
+   }, [valueInputTextAreaAc])
 
-   console.log('valueImputTextAreaAc', valueImputTextAreaAc)
-   console.log('valueImputTextAreaAcNew', valueImputTextAreaAcNew);
+   console.log('valueInputTextAreaAc', valueInputTextAreaAc)
+   console.log('valueInputTextAreaAcNew', valueInputTextAreaAcNew);
 
-/*    const newArticle = valueImputTextAreaAcNew.map((art, index) => {
+   const newArticle = splitInput(valueInputTextAreaAc).map((art) => {
 
       let replaced = art.replace(/\t+/g, '-') //=
          .replace(/\s+/g, '-')  //=
@@ -44,45 +39,51 @@ const ImputTextArea = function () {
 
       console.log('newArt', replaced) //=
 
-      let replaceArt = art
-
-      console.log(replaceArt)
-
       if (replaced[replaced.length - 1] === '-') {
          return replaced.slice(0, -1) //=
       } else {
          return replaced //=
       }
-   }) */
+   })
+
+   console.log('newArticle', newArticle)
 
    return (
-      <div style={{ textAlign: 'center', fontSize: '20px' }}>
-
-         <p>ImputTextArea AC - Component</p>
-
-         <p>splitImput: {splitImput(valueImputTextAreaAc)}</p>
+      <div style={{ textAlign: 'center' }}>
          <br />
-         <p>valueImputTextAreaAc:<br /> {valueImputTextAreaAc}</p>
+         <h3>InputTextArea AC - Component</h3>
          <br />
-         <p>valueImputTextAreaAcNew:<br /> {valueImputTextAreaAcNew}</p>
+         <ul>
+            <h3>Полученные Артикулы</h3>
+            {newArticle.map((item, index) => (
+               <li style={{ listStyleType: 'none' }} key={index}>{item}</li>
+            ))}
+         </ul>
+         {/*          <br />
+         <p>splitInput: <br /> {splitInput(valueInputTextAreaAc)}</p>
+         <br />
+         <p>valueInputTextAreaAc:<br /> {valueInputTextAreaAc}</p>
+         <br />
+         <p>valueInputTextAreaAcNew:<br /> {valueInputTextAreaAcNew}</p>
+         <br /> */}
 
          <TextField
             style={{ marginTop: '15px' }}
             sx={{ width: '400px' }}
             id="outlined-basic"
-            label="Outlined"
+            label="Артикулы"
             variant="outlined"
             color="info"
             size="small"
             multiline
-            value={valueImputTextAreaAc}
-            onChange={event => setValueImputTextAreaAc(event.target.value)}
+            value={valueInputTextAreaAc}
+            onChange={event => setValueInputTextAreaAc(event.target.value)}
          />
 
       </div>
    );
 };
-export default ImputTextArea;
+export default InputTextArea;
 
 /* 
 

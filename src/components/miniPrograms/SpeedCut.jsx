@@ -11,7 +11,7 @@ const SpeedCut = function () {
       <div style={{ textAlign: 'center' }}>
          <h3>SpeedCut - Component</h3>
          <br />
-         <h1>Скорость подачи: {knifeSpeedCut * eatSpeedCut * turnsSpeedCut}мм/мин</h1>
+         <h3>Скорость подачи: {knifeSpeedCut * eatSpeedCut * turnsSpeedCut}мм/мин</h3>
          <TextField
             style={{ marginTop: '15px' }}
             id="outlined-basic"

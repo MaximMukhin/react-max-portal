@@ -17,7 +17,7 @@ const Counter = function () {
 
    return (
       <div style={{ textAlign: 'center' }}>
-         <h2>Counter - Component</h2>
+         <h3>Counter - Component</h3>
          <h1 style={{ fontSize: '20px' }}>{count}</h1>
 
          <Button

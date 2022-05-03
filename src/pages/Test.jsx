@@ -1,12 +1,12 @@
 import React from 'react'
-import ImputTextArea from '../components/miniPrograms/ImputTextArea'
+import InputTextAreaAc from '../components/miniPrograms/InputTextAreaAc'
 import Navigation from '../components/Navigation'
 
 const Test = () => {
    return (
       <div>
          <Navigation />
-         <ImputTextArea />
+         <InputTextAreaAc />
          <hr style={{ margin: '15px 0' }} />
       </div>
    )

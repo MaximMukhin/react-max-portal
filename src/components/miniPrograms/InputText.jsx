@@ -2,14 +2,14 @@ import { TextField } from "@mui/material";
 import React, { useState } from "react";
 
 
-const ImputText = function () {
-   const [valueImputText, setValueImputText] = useState('')
+const InputText = function () {
+   const [valueInputText, setValueInputText] = useState('')
 
    return (
       <div style={{ textAlign: 'center' }}>
-         <h3>ImputText - Component</h3>
+         <h3>InputText - Component</h3>
          <br />
-         <h1>Value UpperCase: {valueImputText.toUpperCase()}</h1>
+         <h3>Value UpperCase: {valueInputText.toUpperCase()}</h3>
 
          <TextField
             style={{ marginTop: '15px' }}
@@ -18,12 +18,12 @@ const ImputText = function () {
             variant="outlined"
             color="info"
             size="small"
-            value={valueImputText}
-            onChange={event => setValueImputText(event.target.value)}
+            value={valueInputText}
+            onChange={event => setValueInputText(event.target.value)}
          />
 
       </div>
    )
 }
 
-export default ImputText;
+export default InputText;
