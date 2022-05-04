@@ -1,22 +1,19 @@
 import { TextField } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+/* import React, { useEffect } from "react"; */
 
-const InputTextArea = function () {
+const InputTextAreaAc = function () {
    const [valueInputTextAreaAc, setValueInputTextAreaAc] = useState('')
-   const [valueInputTextAreaAcNew, setValueInputTextAreaNew] = useState([])
+   /*    const [valueInputTextAreaAcNew, setValueInputTextAreaAcNew] = useState([]) */
 
    const splitInput = (string) => {
       let arr = string.split('\n')
-      console.log('splitInput arr', arr);
       return arr
    }
 
-   useEffect(() => {
-      setValueInputTextAreaNew(splitInput(valueInputTextAreaAc))
-   }, [valueInputTextAreaAc])
-
-   console.log('valueInputTextAreaAc', valueInputTextAreaAc)
-   console.log('valueInputTextAreaAcNew', valueInputTextAreaAcNew);
+/*    useEffect(() => {
+      setValueInputTextAreaAcNew(splitInput(valueInputTextAreaAc))
+   }, [valueInputTextAreaAc]) */
 
    const newArticle = splitInput(valueInputTextAreaAc).map((art) => {
 
@@ -37,8 +34,6 @@ const InputTextArea = function () {
          .replace(/2-B/gi, '2B') //=
          .replace(/1-M/gi, '1M') //=
 
-      console.log('newArt', replaced) //=
-
       if (replaced[replaced.length - 1] === '-') {
          return replaced.slice(0, -1) //=
       } else {
@@ -46,19 +41,33 @@ const InputTextArea = function () {
       }
    })
 
-   console.log('newArticle', newArticle)
-
    return (
       <div style={{ textAlign: 'center' }}>
          <br />
-         <h3>InputTextArea AC - Component</h3>
+         <h3>InputTextArea AcquaCraft - Component</h3>
          <br />
-         <ul>
+         <div style={{ display: 'flex' }}>
+            <TextField
+               style={{ marginTop: '15px' }}
+               sx={{ width: '400px' }}
+               id="outlined-basic"
+               label="Артикулы"
+               variant="outlined"
+               color="info"
+               size="small"
+               multiline
+               value={valueInputTextAreaAc}
+               onChange={event => setValueInputTextAreaAc(event.target.value)}
+            />
+
+            <ul style={{ listStyleType: 'none', width: '40%' }}>
             <h3>Полученные Артикулы</h3>
+               <br />
             {newArticle.map((item, index) => (
-               <li style={{ listStyleType: 'none' }} key={index}>{item}</li>
+               <li key={index}>{item}</li>
             ))}
          </ul>
+         </div>
          {/*          <br />
          <p>splitInput: <br /> {splitInput(valueInputTextAreaAc)}</p>
          <br />
@@ -66,27 +75,12 @@ const InputTextArea = function () {
          <br />
          <p>valueInputTextAreaAcNew:<br /> {valueInputTextAreaAcNew}</p>
          <br /> */}
-
-         <TextField
-            style={{ marginTop: '15px' }}
-            sx={{ width: '400px' }}
-            id="outlined-basic"
-            label="Артикулы"
-            variant="outlined"
-            color="info"
-            size="small"
-            multiline
-            value={valueInputTextAreaAc}
-            onChange={event => setValueInputTextAreaAc(event.target.value)}
-         />
-
       </div>
    );
 };
-export default InputTextArea;
+export default InputTextAreaAc;
 
 /* 
-
 SOFIA	S	K	21	106	1	D	SF027	L
 SOFIA	S	K	21	106	1	D	SF027	R
 SOFIA	S	K	22	67	1	M	SF027	
@@ -100,5 +94,4 @@ SOFIA	S	T	20	60	2	B	SF027
 SOFIA	S	T	20	70	2	B	SF027	
 SOFIA	S	T	20	80	2	B	SF027	
 SOFIA	S	T	20	90	2	B	SF027	
-
 */
