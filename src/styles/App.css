@@ -11,6 +11,8 @@
 #root {
    display: flex;
    justify-content: center;
+   background-color: rgb(48, 52, 56);
+   height: 100vh;
 }
 
 .App {

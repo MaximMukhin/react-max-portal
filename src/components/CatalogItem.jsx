@@ -5,6 +5,7 @@ import { cartState } from '../atoms/cart';
 import { copyDeep } from '../utils/copyDeep';
 import { StyledProductItems } from './styled/StyledProductItems'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { rubFormat } from '../utils/rubFormat';
 
 const CatalogItem = (props) => {
   
@@ -15,7 +16,7 @@ const CatalogItem = (props) => {
 
   const [cart, setCart] = useRecoilState(cartState)
 
-  const updateCart = () => {
+  const AddCart = () => {
     const newCart = copyDeep(cart)
     const finded = newCart.find((el) => el.article === product.article)
     if (!finded) {
@@ -38,18 +39,33 @@ const CatalogItem = (props) => {
         />
         <p>Название: {product.name}</p>
         <p>Цвет: {product.color}</p>
-        <p>Цена: {product.price}руб</p>
+        <p>Цена: {rubFormat(product.price)}</p>
         <p>Склад: {product.available}шт</p>
       </div>
       <div>
-        <Button
-          variant="outlined"
-          color="info"
-          endIcon={<AddShoppingCartIcon />}
-          onClick={updateCart}
-        >
-          Купить
-        </Button>
+        {product.available !== 0
+          ? <Button
+            variant="outlined"
+            color="info"
+            endIcon={<AddShoppingCartIcon />}
+            onClick={AddCart}
+          >
+            Купить
+          </Button>
+
+
+
+          : <Button
+            variant="outlined"
+            color="info"
+            endIcon={<AddShoppingCartIcon />}
+            disabled
+          >
+            Купить
+          </Button>
+        }
+
+
       </div>
     </StyledProductItems>
   )

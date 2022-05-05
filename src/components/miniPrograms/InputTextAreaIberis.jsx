@@ -8,7 +8,6 @@ const InputTextAreaIberis = function () {
 
    const splitInput = (string) => {
       let arr = string.split('\n')
-      console.log('splitInput', arr)
       return arr
    }
 

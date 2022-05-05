@@ -4,7 +4,7 @@ import { cartState } from '../atoms/cart';
 import { copyDeep } from '../utils/copyDeep';
 import CartItem from '../components/CartItem';
 import Navigation from '../components/Navigation';
-import { StyledProductList } from '../components/styled/StyledProductList'
+import { StyledProductList } from '../components/styled/StyledProductList';
 
 const Cart = () => {
 
@@ -44,6 +44,10 @@ const Cart = () => {
       console.log(index);
    }
 
+   const sumCart = cart.reduce((sum, cartItem) => {
+      return sum + cartItem.price * cartItem.qty
+   }, 0)
+
 
 
    return (
@@ -52,6 +56,9 @@ const Cart = () => {
          {cart.length !== 0
             ? <div>
                <h1 style={{ textAlign: 'center' }}>Cart</h1>
+               <p style={{ border: '2px solid grey' }}>
+                  {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(sumCart)}
+               </p>
                <StyledProductList>
                   {cart.map((productCart, index) =>
                      <CartItem

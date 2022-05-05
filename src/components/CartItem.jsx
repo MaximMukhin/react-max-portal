@@ -5,7 +5,8 @@ import { cartState } from '../atoms/cart'; */
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
-import { StyledProductItems } from './styled/StyledProductItems'
+import { StyledProductItems } from './styled/StyledProductItems';
+import { rubFormat } from '../utils/rubFormat';
 
 const CartItem = ({
    productCart,
@@ -30,8 +31,8 @@ const CartItem = ({
             <p>Артикул: {productCart.article}</p>
             <p>Название: {productCart.name}</p>
             <p>Цвет: {productCart.color}</p>
-            <p>Цена: {productCart.price}.руб</p>
-            <p>Общая цена: {productCart.price * productCart.qty}.руб</p>
+               <p>Цена: {rubFormat(productCart.price)}</p>
+               <p>Общая цена: {rubFormat(productCart.price * productCart.qty)}</p>
                <p>Количество:
 
                   <IconButton
