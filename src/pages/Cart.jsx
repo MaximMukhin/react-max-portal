@@ -5,6 +5,7 @@ import { copyDeep } from '../utils/copyDeep';
 import CartItem from '../components/CartItem';
 import Navigation from '../components/Navigation';
 import { StyledProductList } from '../components/styled/StyledProductList';
+import { rubFormat } from '../utils/rubFormat';
 
 const Cart = () => {
 
@@ -57,7 +58,7 @@ const Cart = () => {
             ? <div>
                <h1 style={{ textAlign: 'center' }}>Cart</h1>
                <p style={{ border: '2px solid grey' }}>
-                  {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(sumCart)}
+                  {rubFormat(sumCart)}
                </p>
                <StyledProductList>
                   {cart.map((productCart, index) =>
