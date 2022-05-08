@@ -4,12 +4,11 @@ import { productsState } from "../atoms/products";
 import '../styles/App.css'
 import CatalogList from "../components/CatalogList";
 import Navigation from "../components/Navigation";
-import { Button } from "@mui/material";
-import { copyDeep } from "../utils/copyDeep";
+//import { copyDeep } from "../utils/copyDeep";
 
 function Catalog() {
 
-   const [products, setProducts] = useRecoilState(productsState)
+   const [products, /* setProducts */] = useRecoilState(productsState)
 
    //  useEffect(() => {
    //     fetch('http://localhost:3000/products.json').then((res) => {
@@ -20,33 +19,24 @@ function Catalog() {
    //     })
    //  }, [setProducts])
 
-   const decrementQtyProduct = () => {
-      console.log('decrementQtyProduct')
-      const newProducts = copyDeep(products[0])
-      newProducts.article = products.length
-      newProducts.name = newProducts.name + 'ind' + products.length
-
-      setProducts([...products, newProducts])
-      console.log('Products', products)
-      console.log('newProducts', newProducts)
-   }
+//   const decrementQtyProduct = () => {
+//      console.log('decrementQtyProduct')
+//      const newProducts = copyDeep(products[0])
+//      newProducts.article = products.length
+//      newProducts.name = newProducts.name + 'ind' + (products.length + 1)
+//
+//      setProducts([...products, newProducts])
+//      console.log('Products', products)
+//      console.log('newProducts', newProducts)
+//   }
 
    return (
       <div>
-
          <Navigation />
-
-         <Button
-            variant="outlined"
-            color="info"
-            onClick={decrementQtyProduct}
-         >
-            Qty -1
-         </Button>
 
          <CatalogList
             title={'Catalog'}
-            products={products}
+            productProps={products}
          />
          <hr style={{ margin: '15px 0' }} />
       </div>

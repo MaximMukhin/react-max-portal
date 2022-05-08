@@ -1,12 +1,14 @@
 import { Button, IconButton } from '@mui/material';
 import React from 'react';
-/* import { useRecoilState } from 'recoil';
-import { cartState } from '../atoms/cart'; */
+//import { useRecoilState } from 'recoil';
+//import { cartState } from '../atoms/cart';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
 import { StyledProductItems } from './styled/StyledProductItems';
 import { rubFormat } from '../utils/rubFormat';
+
+//import { copyDeep } from '../utils/copyDeep';
 
 const CartItem = ({
    productCart,
@@ -14,9 +16,10 @@ const CartItem = ({
    removeCartItem,
    decrement,
    increment,
-   clgState }) => {
+   clgState,
+}) => {
 
-   /*    const [cart, setCart] = useRecoilState(cartState) */
+   //   const [cart, setCart] = useRecoilState(cartState)
 
    return (
       <StyledProductItems>
@@ -68,7 +71,7 @@ const CartItem = ({
                <Button
                   variant="outlined"
                   color="info"
-               onClick={() => clgState(number)}
+                  onClick={() => clgState(number, productCart)}
                >
                   Стейт
                </Button>

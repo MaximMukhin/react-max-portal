@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import { cartState } from '../atoms/cart';
+import { productsState } from '../atoms/products';
 import { copyDeep } from '../utils/copyDeep';
 import CartItem from '../components/CartItem';
 import Navigation from '../components/Navigation';
@@ -9,6 +10,7 @@ import { rubFormat } from '../utils/rubFormat';
 
 const Cart = () => {
 
+   const [products, /* setProducts */] = useRecoilState(productsState)
    const [cart, setCart] = useRecoilState(cartState)
 
    //const result = []
@@ -40,20 +42,27 @@ const Cart = () => {
       setCart(newCart)
    }
 
-   const clgState = (index) => {
-      console.log(cart);
-      console.log(index);
+   // const returnQtyProduct = () => {
+   //    const newProduct = copyDeep(products)
+   //    const finded = newProduct.find((el) => el.article === productCart.article)
+   //    console.log('finded', finded);
+   // }
+
+   const clgState = (index, productCart) => {
+      console.log(index, productCart.article);
+      const findArticle = products.find((el) => el.article === productCart.article)
+      console.log('findArticle', findArticle);
+      console.log('products', products)
    }
 
    const sumCart = cart.reduce((sum, cartItem) => {
       return sum + cartItem.price * cartItem.qty
    }, 0)
 
-
-
    return (
       <div>
          <Navigation />
+
          {cart.length !== 0
             ? <div>
                <h1 style={{ textAlign: 'center' }}>Cart</h1>

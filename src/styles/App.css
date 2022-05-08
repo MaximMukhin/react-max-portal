@@ -11,8 +11,11 @@
 #root {
    display: flex;
    justify-content: center;
+}
+
+body {
    background-color: rgb(48, 52, 56);
-   height: 100vh;
+   min-height: 100vh;
 }
 
 .App {

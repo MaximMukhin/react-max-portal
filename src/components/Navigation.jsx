@@ -44,11 +44,11 @@ const Navigation = () => {
             </Button>
          </Link>
 
-         <Link to="/todolist">
+         <Link to="/postlist">
             <Button
                size="large"
             >
-               TodoList
+              PostList
             </Button>
          </Link>
 
