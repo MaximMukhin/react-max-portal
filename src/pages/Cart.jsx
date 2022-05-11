@@ -10,7 +10,7 @@ import { rubFormat } from '../utils/rubFormat';
 
 const Cart = () => {
 
-   const [products, /* setProducts */] = useRecoilState(productsState)
+   const [products, setProducts] = useRecoilState(productsState)
    const [cart, setCart] = useRecoilState(cartState)
 
    //const result = []
@@ -36,23 +36,29 @@ const Cart = () => {
       }
    }
 
-   const removeCartItem = (index) => {
+   const removeCartItem = (index, productCart) => {
       const newCart = copyDeep(cart)
       newCart.splice(index, 1)
       setCart(newCart)
+      returnQtyProduct(productCart)
    }
-
-   // const returnQtyProduct = () => {
-   //    const newProduct = copyDeep(products)
-   //    const finded = newProduct.find((el) => el.article === productCart.article)
-   //    console.log('finded', finded);
-   // }
 
    const clgState = (index, productCart) => {
       console.log(index, productCart.article);
       const findArticle = products.find((el) => el.article === productCart.article)
       console.log('findArticle', findArticle);
       console.log('products', products)
+   }
+
+   const returnQtyProduct = (productCart) => {
+      const newProduct = copyDeep(products)
+      console.log('newProduct', newProduct)
+      const finded = newProduct.find((el) => el.article === productCart.article)
+      finded.available += productCart.qty
+      setProducts(newProduct)
+      console.log('setProducts(newProduct)', newProduct)
+      console.log('finded', finded);
+      console.log('productCart', productCart);
    }
 
    const sumCart = cart.reduce((sum, cartItem) => {

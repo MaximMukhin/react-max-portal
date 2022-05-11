@@ -13,7 +13,7 @@ function Catalog() {
    //  useEffect(() => {
    //     fetch('http://localhost:3000/products.json').then((res) => {
    //        res.json().then((data) => {
-   //           /*             console.log(data); */
+   //           console.log(data);
    //           setProducts(data)
    //        })
    //     })

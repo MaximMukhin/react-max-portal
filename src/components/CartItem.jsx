@@ -1,12 +1,13 @@
 import { Button, IconButton } from '@mui/material';
 import React from 'react';
-//import { useRecoilState } from 'recoil';
 //import { cartState } from '../atoms/cart';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
 import { StyledProductItems } from './styled/StyledProductItems';
 import { rubFormat } from '../utils/rubFormat';
+import { useRecoilState } from 'recoil';
+import { productsState } from '../atoms/products';
 
 //import { copyDeep } from '../utils/copyDeep';
 
@@ -18,8 +19,14 @@ const CartItem = ({
    increment,
    clgState,
 }) => {
-
+   const [products, setProducts] = useRecoilState(productsState)
    //   const [cart, setCart] = useRecoilState(cartState)
+
+   const disabledQtyPlus = () => {
+      const find = products.find((el) => el.article === productCart.article)
+      console.log('disabledQtyPlus find', find.available);
+
+   }
 
    return (
       <StyledProductItems>
@@ -50,7 +57,9 @@ const CartItem = ({
                   <IconButton
                      aria-label="+"
                      color="info"
-                     onClick={() => increment()}>
+                     onClick={() => increment()}
+                     disabled={disabledQtyPlus()}
+                  >
                      <AddBoxIcon />
                   </IconButton>
             </p>
@@ -63,7 +72,7 @@ const CartItem = ({
                   variant="outlined"
                   color="error"
                   endIcon={<DeleteIcon />}
-               onClick={() => removeCartItem(number)}
+                  onClick={() => removeCartItem(number, productCart)}
                >
                   Удалить
                </Button>

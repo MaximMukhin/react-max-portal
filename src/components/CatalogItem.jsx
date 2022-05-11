@@ -52,24 +52,17 @@ const CatalogItem = (props) => {
         <p>Склад: {productProps.available}шт</p>
       </div>
       <div>
-        {productProps.available !== 0
-          ? <Button
+
+        <Button
             variant="outlined"
             color="info"
             endIcon={<AddShoppingCartIcon />}
             onClick={AddToCart}
+          disabled={productProps.available === 0}
           >
             Купить
           </Button>
-          : <Button
-            variant="outlined"
-            color="info"
-            endIcon={<AddShoppingCartIcon />}
-            disabled
-          >
-            Купить
-          </Button>
-        }
+
       </div>
     </StyledProductItems>
   )
