@@ -1,6 +1,6 @@
 import { Button, IconButton } from '@mui/material';
 import React from 'react';
-//import { cartState } from '../atoms/cart';
+import { cartState } from '../atoms/cart';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
@@ -18,14 +18,30 @@ const CartItem = ({
    decrement,
    increment,
    clgState,
+   changeQtyCartIncrement,
+   changeQtyCartDecrement,
 }) => {
-   const [products, setProducts] = useRecoilState(productsState)
-   //   const [cart, setCart] = useRecoilState(cartState)
+   const [products, /* setProducts */] = useRecoilState(productsState)
+   const [cart, /* setCart */] = useRecoilState(cartState)
 
-   const disabledQtyPlus = () => {
+   const disabledIncrement = () => {
       const find = products.find((el) => el.article === productCart.article)
-      console.log('disabledQtyPlus find', find.available);
+      if (find.available !== 0) {
+         return false
+      }
+      if (find.available === 0) {
+         return true
+      }
+   }
 
+   const disabledDecrement = () => {
+      const find = cart.find((el) => el.article === productCart.article)
+      if (find.qty > 1) {
+         return false
+      }
+      if (find.qty <= 1) {
+         return true
+      }
    }
 
    return (
@@ -48,7 +64,9 @@ const CartItem = ({
                   <IconButton
                      aria-label="-"
                      color="info"
-                     onClick={() => decrement()}>
+                     onClick={() => changeQtyCartDecrement(number, productCart)}
+                     disabled={disabledDecrement()}
+                  >
                      <IndeterminateCheckBoxIcon />
                   </IconButton>
 
@@ -57,8 +75,8 @@ const CartItem = ({
                   <IconButton
                      aria-label="+"
                      color="info"
-                     onClick={() => increment()}
-                     disabled={disabledQtyPlus()}
+                     onClick={() => changeQtyCartIncrement(number, productCart)}
+                     disabled={disabledIncrement()}
                   >
                      <AddBoxIcon />
                   </IconButton>

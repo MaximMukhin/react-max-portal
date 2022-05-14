@@ -5,7 +5,13 @@ const Main = () => {
    return (
       <div>
          <Navigation />
-         <div style={{ textAlign: 'center', fontSize: '20px', fontWeight: '900' }}>Главная страница</div>
+         <h3 style={{
+            textAlign: 'center',
+            fontWeight: '900'
+         }}
+         >
+            Главная страница
+         </h3>
       </div>
 
    )

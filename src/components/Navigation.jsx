@@ -1,8 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Button } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
+import { Button, ButtonGroup } from '@mui/material'
+
 
 const Navigation = () => {
+
+   let navigate = useNavigate();
+
+   const goMain = () => navigate('/main');
+   const goCatalog = () => navigate('/');
+   const goCart = () => navigate('/cart');
+   const goMiniProgramms = () => navigate('/miniProgramms');
+   const goPostlist = () => navigate('/postlist');
+   const goTodo = () => navigate('/todo');
+
    return (
       <div style={{
          textAlign: 'center',
@@ -10,55 +21,56 @@ const Navigation = () => {
          fontWeight: '900',
          marginBottom: '20px',
          marginTop: '20px'
-      }}>
+      }}
+      >
 
-         <Link to="/main">
+         <ButtonGroup
+            variant="contained"
+            aria-label="outlined primary button group"
+         >
             <Button
                size="large"
+               onClick={goMain}
             >
-               Главная
+               Главная { }
             </Button>
-         </Link>
 
-         <Link to="/">
             <Button
                size="large"
+               onClick={goCatalog}
             >
                Каталог
             </Button>
-         </Link>
 
-         <Link to="/cart">
             <Button
                size="large"
+               onClick={goCart}
             >
                Корзина
             </Button>
-         </Link>
 
-         <Link to="/miniProgramms">
             <Button
                size="large"
+               onClick={goMiniProgramms}
             >
                Mini-Programms
             </Button>
-         </Link>
 
-         <Link to="/postlist">
             <Button
                size="large"
+               onClick={goPostlist}
             >
-              PostList
+               PostList
             </Button>
-         </Link>
 
-         <Link to="/test">
             <Button
                size="large"
+               onClick={goTodo}
             >
-               Test
+               Todo
             </Button>
-         </Link>
+
+         </ButtonGroup>
       </div>
    )
 }

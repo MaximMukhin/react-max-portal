@@ -19,20 +19,10 @@ function Catalog() {
    //     })
    //  }, [setProducts])
 
-//   const decrementQtyProduct = () => {
-//      console.log('decrementQtyProduct')
-//      const newProducts = copyDeep(products[0])
-//      newProducts.article = products.length
-//      newProducts.name = newProducts.name + 'ind' + (products.length + 1)
-//
-//      setProducts([...products, newProducts])
-//      console.log('Products', products)
-//      console.log('newProducts', newProducts)
-//   }
-
    return (
       <div>
          <Navigation />
+
 
          <CatalogList
             title={'Catalog'}

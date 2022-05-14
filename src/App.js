@@ -4,8 +4,8 @@ import MiniProgramms from "./pages/MiniProgramms";
 import Catalog from "./pages/Catalog";
 import Main from "./pages/Main";
 import Cart from "./pages/Cart";
-import Test from "./pages/Test";
 import PostList from "./pages/PostList";
+import Todo from "./pages/Todo";
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
             <Route path="cart" element={<Cart />} />
             <Route path="miniProgramms" element={<MiniProgramms />} />
             <Route path="postlist" element={<PostList />} />            
-            <Route path="test" element={<Test />} />
+            <Route path="todo" element={<Todo />} />
       </Routes>
       </div>
 

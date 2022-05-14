@@ -55,7 +55,7 @@ const PostList = () => {
    return (
       <div>
          <Navigation />
-         <h4 style={{ textAlign: 'center' }}>Post - Component</h4>
+         <h3 style={{ textAlign: 'center' }}>Post - Component</h3>
 
          <div style={{
             display: 'flex',

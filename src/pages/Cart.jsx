@@ -13,27 +13,38 @@ const Cart = () => {
    const [products, setProducts] = useRecoilState(productsState)
    const [cart, setCart] = useRecoilState(cartState)
 
-   //const result = []
-
-   //for (const product of cart) {
-   //   const finded = result.find((el) => el.article === product.article)
-   //   if (finded) {
-   //      finded.qty++;
-   //      continue
+   //   const changeQty = (index, dir) => {
+   //      const newCart = copyDeep(cart)
+   //      const qty = newCart[index].qty
+   //      if (qty > 1 && dir === -1) {
+   //         newCart[index].qty += dir
+   //         setCart(newCart)
+   //      } else if (dir === 1) {
+   //         newCart[index].qty += dir
+   //         setCart(newCart)
+   //      }
    //   }
-   //   result.push({ ...product, qty: 1 })
-   //}
 
-   const changeQty = (index, dir) => {
+   const changeQtyCartIncrement = (index, productCart) => {
       const newCart = copyDeep(cart)
-      const qty = newCart[index].qty
-      if (qty > 1 && dir === -1) {
-         newCart[index].qty += dir
-         setCart(newCart)
-      } else if (dir === 1) {
-         newCart[index].qty += dir
-         setCart(newCart)
-      }
+      newCart[index].qty++
+      setCart(newCart)
+
+      const newProducts = copyDeep(products)
+      const finded = newProducts.find((el) => el.article === productCart.article)
+      finded.available--
+      setProducts(newProducts)
+   }
+
+   const changeQtyCartDecrement = (index, productCart) => {
+      const newCart = copyDeep(cart)
+      newCart[index].qty--
+      setCart(newCart)
+
+      const newProducts = copyDeep(products)
+      const finded = newProducts.find((el) => el.article === productCart.article)
+      finded.available++
+      setProducts(newProducts)
    }
 
    const removeCartItem = (index, productCart) => {
@@ -71,16 +82,22 @@ const Cart = () => {
 
          {cart.length !== 0
             ? <div>
-               <h1 style={{ textAlign: 'center' }}>Cart</h1>
-               <p style={{ border: '2px solid grey' }}>
+               <h3 style={{ textAlign: 'center' }}>Cart</h3>
+               <p style={{
+                  border: '2px solid grey',
+                  margin: ' 0px  5px',
+               }}
+               >
                   {rubFormat(sumCart)}
                </p>
                <StyledProductList>
                   {cart.map((productCart, index) =>
                      <CartItem
                         clgState={clgState}
-                        decrement={() => changeQty(index, -1)}
-                        increment={() => changeQty(index, 1)}
+                        changeQtyCartIncrement={changeQtyCartIncrement}
+                        changeQtyCartDecrement={changeQtyCartDecrement}
+                       // decrement={() => changeQty(index, -1)}
+                       // increment={() => changeQty(index, 1)}
                         removeCartItem={removeCartItem}
                         number={index}
                         productCart={productCart}
