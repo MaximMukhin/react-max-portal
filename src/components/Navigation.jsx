@@ -12,7 +12,6 @@ const Navigation = () => {
    const goCart = () => navigate('/cart');
    const goMiniProgramms = () => navigate('/miniProgramms');
    const goPostlist = () => navigate('/postlist');
-   const goTodo = () => navigate('/todo');
 
    return (
       <div style={{
@@ -61,13 +60,6 @@ const Navigation = () => {
                onClick={goPostlist}
             >
                PostList
-            </Button>
-
-            <Button
-               size="large"
-               onClick={goTodo}
-            >
-               Todo
             </Button>
 
          </ButtonGroup>
